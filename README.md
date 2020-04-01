@@ -6,9 +6,9 @@
     <img src='https://img.shields.io/github/stars/18510047382/recognizejs?style=flat'>
     <img src='https://img.shields.io/github/license/18510047382/recognizejs'>
     <img src='https://img.shields.io/npm/v/recognizejs'>
+    <br>
+    <img src='readme.png' width='400px'>
 </div>
-
-<img src='readme.png' width='400px'>
 
 ## Installation
 First download and install [GraphicsMagick](http://www.graphicsmagick.org/). In Mac OS X, you can simply use [Homebrew](https://brew.sh/) and do:
