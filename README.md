@@ -92,12 +92,13 @@ Args: **config** is an optional parameter and has the following attributes:
     },
     mobileNet?: {
         // The MobileNet version number. Use 1 for MobileNetV1, and 2 for MobileNetV2. Defaults to 1.
-        version?: 1,
+        version: 1,
 
         // Controls the width of the network, trading accuracy for performance. A smaller alpha decreases accuracy and increases performance. 0.25 is only available for V1. Defaults to 1.0.
         alpha?: 0.25 | .50 | .75 | 1.0,
 
         // Optional param for specifying the custom model url or tf.io.IOHandler object. Returns a model object.
+        // If you are in mainland China, please change modelUrl to the link of the model on https://hub.tensorflow.google.cn
         modelUrl?: string
 
         // Optional param specifying the pixel value range expected by the trained model hosted at the modelUrl. This is typically [0, 1] or [-1, 1].
@@ -105,6 +106,32 @@ Args: **config** is an optional parameter and has the following attributes:
     }
 }
 ```
+
+`cocoSsd` and `mobileNet` are different neural networks in 2. `cocoSsd` is used to identify and classify multiple objects in an image, while `mobileNet` is used to accurately identify an object.
+
+**Initialize the training model:**
+
+```
+model.init(modelType?);
+```
+
+Args: **modelType** can be a string or an array. You can set the model to be loaded here to avoid loading the model that is not needed. **[If you don't set modelType, it will load both cocoSsd and mobileNet models]**
+
+**Example:**
+
+```javascript
+model.init(['cocoSsd', 'mobileNet']);
+
+// or
+
+model.init('cocoSsd');
+
+// or
+
+model.init('mobileNet');
+```
+
+If you don't use the `init` function to load the model, the model will load **automatically** when you need to use them, but it may take a long time to load the model, so please choose the loading method as appropriate.
 
 - `model.recognize(buf)` **[r]**
 
