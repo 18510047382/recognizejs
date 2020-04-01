@@ -1,6 +1,6 @@
 {
     "name": "recognizejs",
-    "version": "1.0.0-alpha",
+    "version": "1.0.0-beta.1",
     "description": "Node.js image detection and recognition framework",
     "main": "index.js",
     "scripts": {
