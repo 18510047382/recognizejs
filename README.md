@@ -1,3 +1,8 @@
+<div align="center">
+    <h1>Recognize.js</h1>
+    <h3>Node.js image detection and recognition framework</h3>
+</div>
+
 ## Installation
 安装图片裁剪环境
 

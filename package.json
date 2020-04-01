@@ -1,7 +1,7 @@
 {
     "name": "recognizejs",
     "version": "1.0.0-alpha",
-    "description": "Recognize all objects in the image, based on TensorFlow neural network",
+    "description": "Node.js image detection and recognition framework.",
     "main": "index.js",
     "scripts": {
         "test": "ava --verbose --timeout 3600000"
