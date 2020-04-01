@@ -1,0 +1,45 @@
+{
+    "name": "recognizejs",
+    "version": "1.0.0-alpha",
+    "description": "Recognize all objects in the image, based on TensorFlow neural network",
+    "main": "index.js",
+    "scripts": {
+        "test": "ava --verbose --timeout 3600000"
+    },
+    "ava": {
+        "files": [
+            "test/*.js"
+        ],
+        "babel": true
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/18510047382/recognizejs.git"
+    },
+    "keywords": [
+        "recognize",
+        "identify",
+        "object",
+        "image",
+        "tensorflow",
+        "neural",
+        "network"
+    ],
+    "author": "Bill Dong",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/18510047382/recognizejs/issues"
+    },
+    "homepage": "https://github.com/18510047382/recognizejs#readme",
+    "dependencies": {
+        "@tensorflow-models/coco-ssd": "^2.0.1",
+        "@tensorflow-models/mobilenet": "^2.0.4",
+        "@tensorflow/tfjs-node": "^1.7.1",
+        "gm": "^1.23.1",
+        "jpeg-js": "^0.3.7"
+    },
+    "devDependencies": {
+        "@ava/babel": "^1.0.1",
+        "ava": "^3.5.2"
+    }
+}
