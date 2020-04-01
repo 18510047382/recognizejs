@@ -3,7 +3,7 @@
     <h4>Node.js image detection and recognition framework</h4>
     <img src='https://img.shields.io/travis/18510047382/recognizejs'>
     <img src='https://img.shields.io/npm/dt/recognizejs'>
-    <img src='https://img.shields.io/github/downloads/18510047382/recognizejs/total'>
+    <img src='https://img.shields.io/github/stars/18510047382/recognizejs?style=flat'>
     <img src='https://img.shields.io/github/license/18510047382/recognizejs'>
     <img src='https://img.shields.io/npm/v/recognizejs'>
 </div>
