@@ -8,6 +8,8 @@
     <img src='https://img.shields.io/npm/v/recognizejs'>
 </div>
 
+![intro img](readme.png)
+
 ## Installation
 First download and install [GraphicsMagick](http://www.graphicsmagick.org/). In Mac OS X, you can simply use [Homebrew](https://brew.sh/) and do:
 
