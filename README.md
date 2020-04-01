@@ -73,7 +73,7 @@ console.log(results);
 The code for this example can be found in the `examples` folder.
 
 ## API
-**Create a Recognizejs model object:**
+### Create a Recognizejs model object
 
 ```
 new Recognizejs(config?);
@@ -109,17 +109,23 @@ Args: **config** is an optional parameter and has the following attributes:
 
 `cocoSsd` and `mobileNet` are different neural networks in 2. `cocoSsd` is used to identify and classify multiple objects in an image, while `mobileNet` is used to accurately identify an object.
 
-**Initialize the training model:**
+### Initialize the training model
 
 ```
 model.init(modelType?);
 ```
+
+The `init` function returns a `Promise` object, you can use `await` statement to handle it.
 
 Args: **modelType** can be a string or an array. You can set the model to be loaded here to avoid loading the model that is not needed. **[If you don't set modelType, it will load both cocoSsd and mobileNet models]**
 
 **Example:**
 
 ```javascript
+model.init();
+
+// or
+
 model.init(['cocoSsd', 'mobileNet']);
 
 // or
@@ -133,15 +139,123 @@ model.init('mobileNet');
 
 If you don't use the `init` function to load the model, the model will load **automatically** when you need to use them, but it may take a long time to load the model, so please choose the loading method as appropriate.
 
-- `model.recognize(buf)` **[r]**
-
-- `model.detect(buf)`
-
-- `model.detectAndRecognize(buf)`
-
-## Bug fixed
-国内无法访问tfhub，请搜索node_module将所有 `https://tfhub.dev/` 改为 `https://hub.tensorflow.google.cn/`
+### Identify objects in image
 
 ```
-(node:9153) UnhandledPromiseRejectionWarning: FetchError: request to https://tfhub.dev/google/imagenet/mobilenet_v1_100_224/classification/1/model.json?tfjs-format=file failed, reason: connect ETIMEDOUT
+model.recognize(buf);
 ```
+
+The `recognize` function returns a `Promise` object, you can use `await` statement to get its return value.
+
+Args: The **buf** parameter requires you to pass a buffer type of image data. You can read the image through the fs module.
+
+**Return value:**
+
+```javascript
+[
+    {
+        className: [
+            'giant panda',
+            'panda',
+            'panda bear',
+            'coon bear',
+            'Ailuropoda melanoleuca'
+        ],
+        probability: 0.9819085597991943
+    },
+    {
+        className: [ 'Chihuahua' ],
+        probability: 0.006128392647951841
+    },
+    {
+        className: [ 'French bulldog' ],
+        probability: 0.0026271280366927385
+    }
+]
+```
+
+**Example:**
+
+```javascript
+const myImgBuf = require('fs').readFileSync(myImgPath);
+
+model.recognize(myImgBuf);
+```
+
+### Detect all objects in the image
+
+```
+model.detect(buf)
+```
+
+The `detect` function returns a `Promise` object, you can use `await` statement to get its return value.
+
+Args: The **buf** parameter requires you to pass a buffer type of image data. You can read the image through the fs module.
+
+**Return value:**
+
+```javascript
+[
+    {
+        bbox: {
+            x: 66.92952662706375,
+        y: 158.30181241035461,
+        width: 157.67111629247665,
+        height: 165.00252485275269
+        },
+        class: 'bear',
+        score: 0.9642460346221924
+    },
+    {
+      bbox: {
+          x: 180.56899309158325,
+          y: -0.32786130905151367,
+        width: 246.6680407524109,
+        height: 308.3251893520355
+        },
+        class: 'bear',
+        score: 0.9133073091506958
+    }
+]
+```
+
+**Example:**
+
+```javascript
+const myImgBuf = require('fs').readFileSync(myImgPath);
+
+model.detect(myImgBuf);
+```
+
+### Detect all objects in the image and identify them
+
+```
+model.detectAndRecognize(buf);
+```
+
+The `detectAndRecognize` function returns a `Promise` object, you can use `await` statement to get its return value.
+
+Args: The **buf** parameter requires you to pass a buffer type of image data. You can read the image through the fs module.
+
+**Return value:**
+
+```javascript
+[
+    recognizeObject,
+    recognizeObject,
+    recognizeObject
+]
+```
+
+**Example:**
+
+```javascript
+const myImgBuf = require('fs').readFileSync(myImgPath);
+
+model.detectAndRecognize(myImgBuf);
+```
+
+## License
+[MIT](http://opensource.org/licenses/MIT)
+
+Copyright ©️ 2020, Yingxuan (Bill) Dong
