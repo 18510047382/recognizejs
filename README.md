@@ -29,7 +29,7 @@ const Recognizejs = require('recognizejs');
 ```
 
 ### Try Recognizejs
-1. Create a model with Recognizejs and initialize it:
+1. Create a model with `Recognizejs` and initialize it:
 
 ```javascript
 const myModel = new Recognizejs();
@@ -107,7 +107,7 @@ Args: **config** is an optional parameter and has the following attributes:
 }
 ```
 
-`cocoSsd` and `mobileNet` are different neural networks in 2. `cocoSsd` is used to identify and classify multiple objects in an image, while `mobileNet` is used to accurately identify an object.
+`cocoSsd` and `mobileNet` are different neural networks. `cocoSsd` is used to identify and classify multiple objects in an image, while `mobileNet` is used to accurately identify an object.
 
 ### Initialize the training model
 
