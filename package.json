@@ -1,7 +1,7 @@
 {
     "name": "recognizejs",
     "version": "1.0.0-alpha",
-    "description": "Node.js image detection and recognition framework.",
+    "description": "Node.js image detection and recognition framework",
     "main": "index.js",
     "scripts": {
         "test": "ava --verbose --timeout 3600000"
