@@ -36,7 +36,7 @@
         "@tensorflow-models/mobilenet": "^2.0.4",
         "@tensorflow/tfjs-node": "^1.7.1",
         "gm": "^1.23.1",
-        "jpeg-js": "^0.3.7"
+        "jpeg-js": "^0.4.0"
     },
     "devDependencies": {
         "@ava/babel": "^1.0.1",
